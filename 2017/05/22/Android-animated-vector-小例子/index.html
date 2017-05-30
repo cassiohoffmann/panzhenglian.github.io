@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://panzhenglian.com/2017/05/22/Android-animated-vector-小例子/">
+    
+    
+    <title>Android animated-vector 小例子 | 平凡的人生</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#80d8ff">
+    
+    
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Android 从5.0开始引入 VectorDrawable，用于实现矢量图。默认情况下，Android L 之前的版本并不支持 vector 标签，但是在 com.android.support:appcompat-v7:23.2.0以上的包中，Google 对vector进行了部分兼容。以下内容，均为兼容 api14以上的代码。  引入appcompat,我这里引入的是25.3.1 c">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android animated-vector 小例子">
+<meta property="og:url" content="http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/index.html">
+<meta property="og:site_name" content="平凡的人生">
+<meta property="og:description" content="Android 从5.0开始引入 VectorDrawable，用于实现矢量图。默认情况下，Android L 之前的版本并不支持 vector 标签，但是在 com.android.support:appcompat-v7:23.2.0以上的包中，Google 对vector进行了部分兼容。以下内容，均为兼容 api14以上的代码。  引入appcompat,我这里引入的是25.3.1 c">
+<meta property="og:image" content="http://blog.panzhenglian.com/images/play_drawable.png">
+<meta property="og:image" content="http://blog.panzhenglian.com/images/play.gif">
+<meta property="og:updated_time" content="2017-05-29T18:03:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android animated-vector 小例子">
+<meta name="twitter:description" content="Android 从5.0开始引入 VectorDrawable，用于实现矢量图。默认情况下，Android L 之前的版本并不支持 vector 标签，但是在 com.android.support:appcompat-v7:23.2.0以上的包中，Google 对vector进行了部分兼容。以下内容，均为兼容 api14以上的代码。  引入appcompat,我这里引入的是25.3.1 c">
+<meta name="twitter:image" content="http://blog.panzhenglian.com/images/play_drawable.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/uploads/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">潘正炼</h5>
+          <a href="mailto:panzhenglian@163.com" title="panzhenglian@163.com" class="mail">panzhenglian@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/panzhenglian" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android animated-vector 小例子</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android animated-vector 小例子</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-22T10:17:46.000Z" itemprop="datePublished" class="page-time">
+  2017-05-22
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Android-animated-vector-小例子"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android animated-vector 小例子</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-22 18:17:46" datetime="2017-05-22T10:17:46.000Z"  itemprop="datePublished">2017-05-22</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>   Android 从5.0开始引入 VectorDrawable，用于实现矢量图。默认情况下，Android L 之前的版本并不支持 vector 标签，<br>但是在 <code>com.android.support:appcompat-v7:23.2.0</code>以上的包中，Google 对vector进行了部分兼容。以下内容，均为兼容 api14以上的代码。</p>
+<ul>
+<li><p>引入appcompat,我这里引入的是25.3.1</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">compile &quot;com.android.support:appcompat-v7:25.3.1&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在 Module的 build.gradle 文件中，加入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vectorDrawables.useSupportLibrary = true</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不加的话，只能兼容静态 vector 标签，而且兼容方式是通过生成位图来做的，在 L版本以前的设备会使用工程生成的 png文件，L版本以后不受影响，但是apk 体积会增大。</p>
+</blockquote>
+</li>
+<li><p>编写vector,这里写一个播放图标效果,静态效果如下,<br><img src="/images/play_drawable.png " width="100" height="100"><br>文件名<code>svg_flash_play.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">vector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:width</span>=<span class="string">"25dp"</span></div><div class="line">    <span class="attr">android:height</span>=<span class="string">"25dp"</span></div><div class="line">    <span class="attr">android:viewportHeight</span>=<span class="string">"50.0"</span></div><div class="line">    <span class="attr">android:viewportWidth</span>=<span class="string">"50.0"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">path</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p1"</span></div><div class="line">        <span class="attr">android:pathData</span>=<span class="string">"M12 ,38 v-28"</span></div><div class="line">        <span class="attr">android:strokeColor</span>=<span class="string">"#fff"</span></div><div class="line">        <span class="attr">android:strokeWidth</span>=<span class="string">"4"</span> /&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">path</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p2"</span></div><div class="line">        <span class="attr">android:pathData</span>=<span class="string">"M21 ,38 v-30"</span></div><div class="line">        <span class="attr">android:strokeColor</span>=<span class="string">"#fff"</span></div><div class="line">        <span class="attr">android:strokeWidth</span>=<span class="string">"4"</span></div><div class="line">        <span class="attr">android:trimPathEnd</span>=<span class="string">"0.4"</span> /&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">path</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p3"</span></div><div class="line">        <span class="attr">android:pathData</span>=<span class="string">"M29 ,38 v-34"</span></div><div class="line">        <span class="attr">android:strokeColor</span>=<span class="string">"#fff"</span></div><div class="line">        <span class="attr">android:strokeWidth</span>=<span class="string">"4"</span> /&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">path</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p4"</span></div><div class="line">        <span class="attr">android:pathData</span>=<span class="string">"M38 ,38 v-32"</span></div><div class="line">        <span class="attr">android:strokeColor</span>=<span class="string">"#fff"</span></div><div class="line">        <span class="attr">android:strokeWidth</span>=<span class="string">"4"</span></div><div class="line">        <span class="attr">android:trimPathEnd</span>=<span class="string">"0.45"</span> /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">vector</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>编写animated-vector，animated-vector 可以看作是一个关联动画与vector适配器,文件名：<code>animation_svg_play.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">animated-vector</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:drawable</span>=<span class="string">"@drawable/svg_flash_play"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">target</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p1"</span></div><div class="line">        <span class="attr">android:animation</span>=<span class="string">"@animator/anim_p1"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">target</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p2"</span></div><div class="line">        <span class="attr">android:animation</span>=<span class="string">"@animator/anim_p2"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">target</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p3"</span></div><div class="line">        <span class="attr">android:animation</span>=<span class="string">"@animator/anim_p3"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">target</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"p4"</span></div><div class="line">        <span class="attr">android:animation</span>=<span class="string">"@animator/anim_p4"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">animated-vector</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>  drawable属性关联需要执行动画的vector，这里写之前的vector文件。</p>
+</li>
+<li><p>这里的四个 target 对应四个属性动画，四个文件差不多，这里只贴其中之一,<code>anim_p1.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">objectAnimator</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">android:duration</span>=<span class="string">"300"</span></div><div class="line">    <span class="attr">android:propertyName</span>=<span class="string">"trimPathEnd"</span></div><div class="line">    <span class="attr">android:repeatCount</span>=<span class="string">"infinite"</span></div><div class="line">    <span class="attr">android:repeatMode</span>=<span class="string">"reverse"</span></div><div class="line">    <span class="attr">android:valueFrom</span>=<span class="string">"1"</span></div><div class="line">    <span class="attr">android:valueTo</span>=<span class="string">"0.3"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>属性讲解：</p>
+<ol>
+<li>propertyName ：对应要执行动画的属性名，这里写的 <code>trimPathEnd</code>,该属性是 vector 下 path 标签的属性,属性取值范围：0-1</li>
+<li>repeatMode 有两个取值，reverse和restart，代表反转与重新开始执行动画。</li>
+<li>valueFrom 起始值，这里写的1，对应之前 <code>propertyName=&quot;trimPathEnd&quot;</code>,动画开始的时候，第一条线是 画满的，</li>
+<li>valueTo 结束值，这里写的0.3，对应之前 <code>propertyName=&quot;trimPathEnd&quot;</code>,第一次动画结束时，第一条线会只画到0.3的长度。</li>
+</ol>
+</li>
+<li><p>设置<br>在 ImageView 中设置 <code>app:srcCompat=&quot;@drawable/animation_svg_play&quot;</code> 即可，不能直接用 android:src,这样会报错的。<br>代码中开启动画:  </p>
+  <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ImageView imageView = (ImageView) findViewById(R.id.image_view);</div><div class="line">Drawable drawable = imageView.getDrawable();</div><div class="line"><span class="keyword">if</span> (drawable <span class="keyword">instanceof</span> Animatable)&#123;</div><div class="line">     ((Animatable) drawable).start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  如果需要在java 代码中设置图片，可以这么写  </p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">AnimatedVectorDrawableCompat animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(</div><div class="line">    getContext(), R.drawable.animation_svg_play</div><div class="line">);</div><div class="line">imageView.setImageDrawable(animatedVectorDrawableCompat);</div></pre></td></tr></table></figure>
+</li>
+<li><p>效果<br><img src="/images/play.gif" alt=""></p>
+</li>
+</ul>
+<p>代码已提交 <a href="https://github.com/panzhenglian/VectorDemo" target="_blank" rel="external">github</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-29T18:03:30.000Z" itemprop="dateUpdated">2017-05-30 02:03:30</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://blog.panzhenglian.com">
+            <img src="/uploads/avatar.jpg" alt="潘正炼">
+            潘正炼
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&title=《Android animated-vector 小例子》 — 平凡的人生&pic=http://blog.panzhenglian.com/uploads/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&title=《Android animated-vector 小例子》 — 平凡的人生&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android animated-vector 小例子》 — 平凡的人生&url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&via=http://blog.panzhenglian.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/05/23/ffmpeg-Video-to-GIF/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">ffmpeg Video to GIF</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/21/Android-Studio-Logcat颜色/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android Studio Logcat颜色</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/index.html',
+        sourceId: 'Android-animated-vector-小例子',
+        productKey: '4838d6f4ebf84c3e9a0ff5754042079a',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '/css/cloudTie/pc.css?v=1.6.7',
+            '/js/cloudTie/pc.min.js?v=1.6.7',
+        ],
+        mobileFiles: [
+            '/css/cloudTie/mobile.css?v=1.6.7',
+            '/js/cloudTie/mobile.min.js?v=1.6.7'
+        ]
+    };
+    </script>
+    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>潘正炼 &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&title=《Android animated-vector 小例子》 — 平凡的人生&pic=http://blog.panzhenglian.com/uploads/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&title=《Android animated-vector 小例子》 — 平凡的人生&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android animated-vector 小例子》 — 平凡的人生&url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/&via=http://blog.panzhenglian.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.panzhenglian.com/2017/05/22/Android-animated-vector-小例子/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
