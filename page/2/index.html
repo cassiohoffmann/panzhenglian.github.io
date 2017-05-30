@@ -135,51 +135,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-打开OS X读写NTFS功能"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-06-01 00:39:33" datetime="2016-05-31T16:39:33.000Z"  itemprop="datePublished">2016-06-01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Mac/">Mac</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2016/06/01/打开OS X读写NTFS功能/">如何打开Mac OSX原生的读写NTFS功能</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        打开终端，查看磁盘 Volume Nmaediskutil list
-我的电脑是这样子的
-/dev/disk0 (internal, physical):   #:                       TYPE NAME                    SIZE       IDENTIFIER   0:      GUID_partition_scheme          ...
-    
-
-        <a href="/2016/06/01/打开OS X读写NTFS功能/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-Centos个人应用清单"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -243,8 +198,6 @@ Shadowsocks配置  已经有一篇文...
         <time class="post-time" title="2016-05-28 02:16:08" datetime="2016-05-27T18:16:08.000Z"  itemprop="datePublished">2016-05-28</time>
 
         
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/翻墙/">翻墙</a></li></ul>
-
 
 
         
@@ -275,6 +228,12 @@ easy_install貌似也可以装shadowsocks，但笔者装完之后未成功连接
         <a href="/2016/05/28/搭建shadowsocks服务器/" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
     </div>
     
 </article>
@@ -569,7 +528,7 @@ easy_install貌似也可以装shadowsocks，但笔者装完之后未成功连接
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        /** * @param address 地址 * @return 根据地址，返回该地址ping速度，如果不可用，返回-1f */private float getSpeed(String address) &#123;    address = address.replace("http://", "");    address = address.replace("https://", ...
+        public class PingUtil&#123;    /**     * @param address 地址     * @return 根据地址，返回该地址ping速度，如果不可用，返回-1f     */    private static float getSpeed(String address) &#123;        address = address.replace...
     
 
         <a href="/2016/05/10/Android ping命令获取连接速度/" class="post-more waves-effect waves-button">
