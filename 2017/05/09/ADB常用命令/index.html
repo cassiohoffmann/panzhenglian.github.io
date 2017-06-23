@@ -182,7 +182,7 @@
 <p><strong>注：</strong> 有部分命令的支持情况可能与 Android 系统版本及定制 ROM 的实现有关。</p>
 <p>Other languages: <a href="./README.en.md">:gb: English</a></p>
 <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h3><p>adb 命令的基本语法如下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb [<span class="_">-d</span>|<span class="_">-e</span>|<span class="_">-s</span> &lt;serialNumber&gt;] &lt;<span class="built_in">command</span>&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb [-d|-e|-s &lt;serialNumber&gt;] &lt;<span class="built_in">command</span>&gt;</div></pre></td></tr></table></figure>
 <p>如果只有一个设备/模拟器连接时，可以省略掉 <code>[-d|-e|-s &lt;serialNumber&gt;]</code> 这一部分，直接使用 <code>adb &lt;command&gt;</code>。</p>
 <h3 id="为命令指定目标设备"><a href="#为命令指定目标设备" class="headerlink" title="为命令指定目标设备"></a>为命令指定目标设备</h3><p>如果有多个设备/模拟器连接，则需要为命令指定目标设备。</p>
 <table>
@@ -211,9 +211,9 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">$ adb devices</div><div class="line"></div><div class="line">List of devices attached</div><div class="line">cf264b8f	device</div><div class="line">emulator-5554	device</div><div class="line">10.129.164.6:5555	device</div></pre></td></tr></table></figure>
 <p>输出里的 <code>cf264b8f</code>、<code>emulator-5554</code> 和 <code>10.129.164.6:5555</code> 即为 serialNumber。</p>
 <p>比如这时想指定 <code>cf264b8f</code> 这个设备来运行 adb 命令获取屏幕分辨率：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb <span class="_">-s</span> cf264b8f shell wm size</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb -s cf264b8f shell wm size</div></pre></td></tr></table></figure>
 <p>又如想给 <code>10.129.164.6:5555</code> 这个设备安装应用（<em>这种形式的 serialNumber 格式为 <code>&lt;IP&gt;:&lt;Port&gt;</code>，一般为无线连接的设备或 Genymotion 等第三方 Android 模拟器</em>）：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb <span class="_">-s</span> 10.129.164.6:5555 install test.apk</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb -s 10.129.164.6:5555 install test.apk</div></pre></td></tr></table></figure>
 <p><strong>遇到多设备/模拟器的情况均使用这几个参数为命令指定目标设备，下文中为简化描述，不再重复。</strong></p>
 <h3 id="启动-停止"><a href="#启动-停止" class="headerlink" title="启动/停止"></a>启动/停止</h3><p>启动 adb server 命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb start-server</div></pre></td></tr></table></figure>
@@ -337,7 +337,7 @@
 <p>如果 restart 无效，尝试以下命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">start adbd</div><div class="line">stop adbd</div></pre></td></tr></table></figure>
 <h2 id="应用管理"><a href="#应用管理" class="headerlink" title="应用管理"></a>应用管理</h2><h3 id="查看应用列表"><a href="#查看应用列表" class="headerlink" title="查看应用列表"></a>查看应用列表</h3><p>查看应用列表的基本命令格式是</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell pm list packages [<span class="_">-f</span>] [<span class="_">-d</span>] [<span class="_">-e</span>] [<span class="_">-s</span>] [-3] [-i] [-u] [--user USER_ID] [FILTER]</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell pm list packages [-f] [-d] [-e] [-s] [-3] [-i] [-u] [--user USER_ID] [FILTER]</div></pre></td></tr></table></figure>
 <p>即在 <code>adb shell pm list packages</code> 的基础上可以加一些参数进行过滤查看不同的列表，支持的过滤参数如下：</p>
 <table>
 <thead>
@@ -390,7 +390,7 @@
 <p>输出示例：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">package:com.android.smoketest</div><div class="line">package:com.example.android.livecubes</div><div class="line">package:com.android.providers.telephony</div><div class="line">package:com.google.android.googlequicksearchbox</div><div class="line">package:com.android.providers.calendar</div><div class="line">package:com.android.providers.media</div><div class="line">package:com.android.protips</div><div class="line">package:com.android.documentsui</div><div class="line">package:com.android.gallery</div><div class="line">package:com.android.externalstorage</div><div class="line">...</div><div class="line">// other packages here</div><div class="line">...</div></pre></td></tr></table></figure>
 <h4 id="系统应用"><a href="#系统应用" class="headerlink" title="系统应用"></a>系统应用</h4><p>命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell pm list packages <span class="_">-s</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell pm list packages -s</div></pre></td></tr></table></figure>
 <h4 id="第三方应用"><a href="#第三方应用" class="headerlink" title="第三方应用"></a>第三方应用</h4><p>命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell pm list packages -3</div></pre></td></tr></table></figure>
 <h4 id="包名包含某字符串的应用"><a href="#包名包含某字符串的应用" class="headerlink" title="包名包含某字符串的应用"></a>包名包含某字符串的应用</h4><p>比如要查看包名包含字符串 <code>mazhuang</code> 的应用列表，命令：</p>
@@ -860,9 +860,9 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell am broadcast [options] &lt;INTENT&gt;</div></pre></td></tr></table></figure>
 <p>可以向所有组件广播，也可以只向指定组件广播。</p>
 <p>例如，向所有组件广播 <code>BOOT_COMPLETED</code>：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell am broadcast <span class="_">-a</span> android.intent.action.BOOT_COMPLETED</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell am broadcast -a android.intent.action.BOOT_COMPLETED</div></pre></td></tr></table></figure>
 <p>又例如，只向 <code>org.mazhuang.boottimemeasure/.BootCompletedReceiver</code> 广播 <code>BOOT_COMPLETED</code>：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell am broadcast <span class="_">-a</span> android.intent.action.BOOT_COMPLETED -n org.mazhuang.boottimemeasure/.BootCompletedReceiver</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell am broadcast -a android.intent.action.BOOT_COMPLETED -n org.mazhuang.boottimemeasure/.BootCompletedReceiver</div></pre></td></tr></table></figure>
 <p>这类用法在测试的时候很实用，比如某个广播的场景很难制造，可以考虑通过这种方式来发送广播。</p>
 <p>既能发送系统预定义的广播，也能发送自定义广播。如下是部分系统预定义广播及正常触发时机：</p>
 <table>
@@ -1234,7 +1234,7 @@
 <h3 id="内核日志"><a href="#内核日志" class="headerlink" title="内核日志"></a>内核日志</h3><p>命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell dmesg</div></pre></td></tr></table></figure>
 <p>输出示例：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">&lt;6&gt;[14201.684016] PM: noirq resume of devices complete after 0.982 msecs</div><div class="line">&lt;6&gt;[14201.685525] PM: early resume of devices complete after 0.838 msecs</div><div class="line">&lt;6&gt;[14201.753642] PM: resume of devices complete after 68.106 msecs</div><div class="line">&lt;4&gt;[14201.755954] Restarting tasks ... done.</div><div class="line">&lt;6&gt;[14201.771229] PM: <span class="built_in">suspend</span> <span class="built_in">exit</span> 2016-08-28 13:31:32.679217193 UTC</div><div class="line">&lt;6&gt;[14201.872373] PM: <span class="built_in">suspend</span> entry 2016-08-28 13:31:32.780363596 UTC</div><div class="line">&lt;6&gt;[14201.872498] PM: Syncing filesystems ... done.</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">&lt;6&gt;[14201.684016] PM: noirq resume of devices complete after 0.982 msecs</div><div class="line">&lt;6&gt;[14201.685525] PM: early resume of devices complete after 0.838 msecs</div><div class="line">&lt;6&gt;[14201.753642] PM: resume of devices complete after 68.106 msecs</div><div class="line">&lt;4&gt;[14201.755954] Restarting tasks ... <span class="keyword">done</span>.</div><div class="line">&lt;6&gt;[14201.771229] PM: <span class="built_in">suspend</span> <span class="built_in">exit</span> 2016-08-28 13:31:32.679217193 UTC</div><div class="line">&lt;6&gt;[14201.872373] PM: <span class="built_in">suspend</span> entry 2016-08-28 13:31:32.780363596 UTC</div><div class="line">&lt;6&gt;[14201.872498] PM: Syncing filesystems ... <span class="keyword">done</span>.</div></pre></td></tr></table></figure>
 <p>中括号里的 <code>[14201.684016]</code> 代表内核开始启动后的时间，单位为秒。</p>
 <p>通过内核日志我们可以做一些事情，比如衡量内核启动时间，在系统启动完毕后的内核日志里找到 <code>Freeing init memory</code> 那一行前面的时间就是。</p>
 <h2 id="查看设备信息"><a href="#查看设备信息" class="headerlink" title="查看设备信息"></a>查看设备信息</h2><h3 id="型号"><a href="#型号" class="headerlink" title="型号"></a>型号</h3><p>命令：</p>
@@ -1562,7 +1562,7 @@
 <p><code>ssid</code> 即为我们在 WLAN 设置里看到的名称，<code>psk</code> 为密码，<code>key_mgmt</code> 为安全加密方式。</p>
 <h3 id="设置系统日期和时间"><a href="#设置系统日期和时间" class="headerlink" title="设置系统日期和时间"></a>设置系统日期和时间</h3><p><strong>注：需要 root 权限。</strong></p>
 <p>命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell</div><div class="line">su</div><div class="line">date <span class="_">-s</span> 20160823.131500</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb shell</div><div class="line">su</div><div class="line">date -s 20160823.131500</div></pre></td></tr></table></figure>
 <p>表示将系统日期和时间更改为 2016 年 08 月 23 日 13 点 15 分 00 秒。</p>
 <h3 id="重启手机"><a href="#重启手机" class="headerlink" title="重启手机"></a>重启手机</h3><p>命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">adb reboot</div></pre></td></tr></table></figure>
@@ -1690,7 +1690,7 @@
 </tbody>
 </table>
 <p><code>top</code> 命令还支持一些命令行参数，详细用法如下：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">Usage: top [ -m max_procs ] [ -n iterations ] [ <span class="_">-d</span> delay ] [ <span class="_">-s</span> sort_column ] [ -t ] [ -h ]</div><div class="line">    -m num  最多显示多少个进程</div><div class="line">    -n num  刷新多少次后退出</div><div class="line">    <span class="_">-d</span> num  刷新时间间隔（单位秒，默认值 5）</div><div class="line">    <span class="_">-s</span> col  按某列排序（可用 col 值：cpu, vss, rss, thr）</div><div class="line">    -t      显示线程信息</div><div class="line">    -h      显示帮助文档</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">Usage: top [ -m max_procs ] [ -n iterations ] [ -d delay ] [ -s sort_column ] [ -t ] [ -h ]</div><div class="line">    -m num  最多显示多少个进程</div><div class="line">    -n num  刷新多少次后退出</div><div class="line">    -d num  刷新时间间隔（单位秒，默认值 5）</div><div class="line">    -s col  按某列排序（可用 col 值：cpu, vss, rss, thr）</div><div class="line">    -t      显示线程信息</div><div class="line">    -h      显示帮助文档</div></pre></td></tr></table></figure>
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>如下是其它常用命令的简单描述，前文已经专门讲过的命令不再额外说明：</p>
 <table>
 <thead>
