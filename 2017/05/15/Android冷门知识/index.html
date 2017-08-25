@@ -29,7 +29,7 @@
 <meta property="og:url" content="http://blog.panzhenglian.com/2017/05/15/Android冷门知识/index.html">
 <meta property="og:site_name" content="平凡的人生">
 <meta property="og:description" content="记录日常开发中冷门知识，随意而写，未整理   RecyclerViewRecyclerView 的 Layoutmanager 可以直接申明在 xml 中,具体代码可查看RecyclerView.createLayoutManager 方法. &amp;lt;android.support.v7.widget.RecyclerView    android:id=&quot;@+id/recycler_view&quot;">
-<meta property="og:updated_time" content="2017-07-21T03:21:57.000Z">
+<meta property="og:updated_time" content="2017-07-24T01:56:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android冷门知识">
 <meta name="twitter:description" content="记录日常开发中冷门知识，随意而写，未整理   RecyclerViewRecyclerView 的 Layoutmanager 可以直接申明在 xml 中,具体代码可查看RecyclerView.createLayoutManager 方法. &amp;lt;android.support.v7.widget.RecyclerView    android:id=&quot;@+id/recycler_view&quot;">
@@ -152,7 +152,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RecyclerView"><span class="post-toc-number">1.</span> <span class="post-toc-text">RecyclerView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Layout"><span class="post-toc-number">2.</span> <span class="post-toc-text">Layout</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TextView"><span class="post-toc-number">3.</span> <span class="post-toc-text">TextView</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RecyclerView"><span class="post-toc-number">1.</span> <span class="post-toc-text">RecyclerView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Layout"><span class="post-toc-number">2.</span> <span class="post-toc-text">Layout</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TextView"><span class="post-toc-number">3.</span> <span class="post-toc-text">TextView</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#System"><span class="post-toc-number">4.</span> <span class="post-toc-text">System</span></a></li></ol>
         </nav>
     </aside>
     
@@ -199,6 +199,7 @@
 <h3 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h3><p>android:digits，限定输入字符，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">只允许 数字、字母以及部分特殊符号输入</div><div class="line">android:digits=&quot;0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&apos;_- &quot;</div></pre></td></tr></table></figure></p>
 <p>CheckedTextView 的gravity=”center”,该属性是失效的，只会让内容垂直居中，正确的做法是：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">android:gravity=&quot;center_vertical&quot;</div><div class="line">android:textAlignment=&quot;center&quot;</div></pre></td></tr></table></figure></p>
 <p>显示密码与隐藏密码<br><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.design.widget.TextInputLayout</span></span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/Widget.Design.TextInputLayout"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">app:passwordToggleEnabled</span>=<span class="string">"true"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.TextInputEditText</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:hint</span>=<span class="string">"请输入密码"</span></div><div class="line">        <span class="attr">android:inputType</span>=<span class="string">"textPassword"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.design.widget.TextInputLayout</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="System"><a href="#System" class="headerlink" title="System"></a>System</h3><p>拦截系统返回键(onBackPressed())，使App不退出，而是进入后台运行<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBackPressed</span><span class="params">()</span> </span>&#123;</div><div class="line">    moveTaskToBack(<span class="keyword">false</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -206,7 +207,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-07-21T03:21:57.000Z" itemprop="dateUpdated">2017-07-21 11:21:57</time>
+    最后更新时间：<time datetime="2017-07-24T01:56:11.000Z" itemprop="dateUpdated">2017-07-24 09:56:11</time>
 </span><br>
 
 
