@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/">
+    
+    
+    <title>.htaccess教程：简介、访问控制、验证、目录浏览控制 | 平凡</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#80d8ff">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="转载，原文链接https://lesca.me/archives/htaccess-basic.html 一、.htaccess简介 什么是.htaccess.htaccess是一个纯文本文件，里面存放着Apache服务器配置相关的一些指令，它类似于Apache的站点配置文件，如httpd.conf（Apache2已经支持多站点，因此你的站点配置文件可能在/etc/apache2/conf.d/目">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".htaccess教程：简介、访问控制、验证、目录浏览控制">
+<meta property="og:url" content="http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/index.html">
+<meta property="og:site_name" content="平凡">
+<meta property="og:description" content="转载，原文链接https://lesca.me/archives/htaccess-basic.html 一、.htaccess简介 什么是.htaccess.htaccess是一个纯文本文件，里面存放着Apache服务器配置相关的一些指令，它类似于Apache的站点配置文件，如httpd.conf（Apache2已经支持多站点，因此你的站点配置文件可能在/etc/apache2/conf.d/目">
+<meta property="og:updated_time" content="2018-04-25T08:46:46.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=".htaccess教程：简介、访问控制、验证、目录浏览控制">
+<meta name="twitter:description" content="转载，原文链接https://lesca.me/archives/htaccess-basic.html 一、.htaccess简介 什么是.htaccess.htaccess是一个纯文本文件，里面存放着Apache服务器配置相关的一些指令，它类似于Apache的站点配置文件，如httpd.conf（Apache2已经支持多站点，因此你的站点配置文件可能在/etc/apache2/conf.d/目">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.png)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/uploads/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">平凡</h5>
+          <a href="mailto:panzhenglian@163.com" title="panzhenglian@163.com" class="mail">panzhenglian@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/panzhenglian" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">.htaccess教程：简介、访问控制、验证、目录浏览控制</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">.htaccess教程：简介、访问控制、验证、目录浏览控制</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-04-25T08:38:23.000Z" itemprop="datePublished" class="page-time">
+  2018-04-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一、-htaccess简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、.htaccess简介</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#secure-htaccess-file"><span class="post-toc-number"></span> <span class="post-toc-text">secure htaccess file</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#password-protect-single-file"><span class="post-toc-number"></span> <span class="post-toc-text">password-protect single file</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#password-protect-multiple-files"><span class="post-toc-number"></span> <span class="post-toc-text">password-protect multiple files</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#enable-directory-browsing"><span class="post-toc-number"></span> <span class="post-toc-text">enable directory browsing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#disable-directory-browsing"><span class="post-toc-number"></span> <span class="post-toc-text">disable directory browsing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#prevent-folder-listing"><span class="post-toc-number"></span> <span class="post-toc-text">prevent folder listing</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#prevent-display-of-select-file-types"><span class="post-toc-number"></span> <span class="post-toc-text">prevent display of select file types</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#custom-error-documents"><span class="post-toc-number"></span> <span class="post-toc-text">custom error documents</span></a>
+        </nav>
+    </aside>
+    
+<article id="post-htaccess教程：简介、访问控制、验证、目录浏览控制"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">.htaccess教程：简介、访问控制、验证、目录浏览控制</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-04-25 16:38:23" datetime="2018-04-25T08:38:23.000Z"  itemprop="datePublished">2018-04-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>转载，原文链接<a href="https://lesca.me/archives/htaccess-basic.html" target="_blank" rel="external">https://lesca.me/archives/htaccess-basic.html</a></p>
+<h2 id="一、-htaccess简介"><a href="#一、-htaccess简介" class="headerlink" title="一、.htaccess简介"></a>一、.htaccess简介</h2><ol>
+<li><p>什么是.htaccess<br>.htaccess是一个纯文本文件，里面存放着Apache服务器配置相关的一些指令，它类似于Apache的站点配置文件，如httpd.conf（Apache2已经支持多站点，因此你的站点配置文件可能在/etc/apache2/conf.d/目录下）。<br>.htaccess与httpd.conf配置文件不同的是，它只作用于当前目录。另外httpd.conf是在Apache服务启动的时候就加载的，而.htaccess只有在用户访问目录时加载，开销大、速度慢。<br>既然如此，为什么我们还要用.htaccess呢？因为它配置起来简单，它还支持重定向、URL重写以及访问验证，另外它管理起来很方便，可以很好适应网站迁移。总之，各有优缺点，主要就看你是要从全局考虑还是只配置单个目录。</p>
+</li>
+<li><p>AllowOverride All<br>通常情况下，Apache是默认启用.htaccess的，但是为了以防万一，请检查一下自己站点的配置文件，如httpd.conf，是否有这行：</p>
+</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>All ```</span></figcaption><table><tr><td class="code"><pre><div class="line">true这行允许重写配置文件。也就是如果能够从.htaccess加载配置文件，那么就以.htaccess为配置文件对其所在目录进行配置。</div><div class="line"></div><div class="line">3. 500错误</div><div class="line">如果你租用了云服务提供商的主机或者空间，那么他们可能不会给你读写httpd.conf文件的权限，你也不可能检查AllowOverride命令参数是否为All，这时，你可以新建一个目录，在里面写一个.htaccess文件，文件中随意写入一些服务器看不懂的东西，然后访问该目录里的一个页面，耐心等待500错误的出现。</div><div class="line">如果没有出现，那么.htaccess没有被启用，你需要向你的服务供应商寻求帮助；如果出现了，那么恭喜你，你可以对当前目录重写Apache配置。</div><div class="line">/!\注意：.htaccess语法错误可能会影响整个站点，如果你不确定这样做是否安全，请联系你的云服务供应商。</div><div class="line"></div><div class="line">4. 有用的文档</div><div class="line">.htaccess正则表达式</div><div class="line">HTTP协议重定向编码</div><div class="line"></div><div class="line">## 二、.htaccess访问控制(Allow/Deny)</div><div class="line">1. 访问控制基础：Order命令</div><div class="line">为了限制用户访问一些关键目录，.htaccess可以提供目录访问限制。你只需要在要限制的目录中，加入如下.htaccess文件：</div><div class="line"></div><div class="line">``` no one gets in here!</div></pre></td></tr></table></figure>
+<pre><code>deny from all
+</code></pre><p>这会限制所有用户通过浏览器访问该目录，这太一刀切了，因此我们还可以增加一些特定的条件，如允许指定IP地址的访问：</p>
+<p>Order Allow,Deny<br>Deny from All<br>Allow from 192.168.0.0/24<br>Order命令<br>Order命令是一个难点，也是配置apache的基础，它决定了Apache处理访问规则的顺序。</p>
+<p>通过Allow,Deny参数，Apache首先找到并应用Allow命令，然后应用Deny命令，以阻止所有访问。<br>通过Deny,Allow参数，Apache首先找到并应用Deny命令，然后应用Allow命令，以允许所有访问。<br>了解Order的用法后，再仔细考虑下上面的例子，你或许能够发现Deny命令是多余的，以下用法和之前的描述语义相同：</p>
+<p>Order Allow,Deny<br>Allow from 192.168.0/24<br>2.利用.htaccess过滤域名或网络主机(Allow/Deny)<br>下例可以限制所有含有“domain.com”的网络主机访问网站：</p>
+<p>Order Allow,Deny<br>Allow from all<br>Deny from .<em>domain.com.</em><br>{!}Info：有关htaccess的正则表达式用法，请查阅本站《.htaccess正则表达式》一文。</p>
+<p>3.利用.htaccess禁止访问指定文件(Files)<br>Files命令可以用于过滤指定文件：</p>
+<h1 id="secure-htaccess-file"><a href="#secure-htaccess-file" class="headerlink" title="secure htaccess file"></a>secure htaccess file</h1><p><files .htaccess=""><br> order allow,deny<br> deny from all<br></files><br>4.利用.htaccess禁止访问指定文件类型(FilesMatch)<br>下面的代码将限制访问所有.log和.exe文件：</p>
+<p><filesmatch ".(log|exe)$"=""><br> Order allow,deny<br> Deny from all<br></filesmatch><br>我们还可以通过Files命令描述文件类型，但是需要在命令后面加一个波浪线(~)，该符号启用Files命令的正则表达解析功能：</p>
+<p><files ~="" "^.*\.([ll][oo][gg])|([ee][xx][ee])"=""><br> Order allow,deny<br> Deny from all<br> Satisfy All<br></files><br>有以下几点需要读者注意：</p>
+<p>Files之后的波浪线用于开启“正则表达式”分析。请注意，这是个过时的用法，Apache更推荐使用<filesmatch>指令[3]<br>正则表达式必须在双引号之间，有关htaccess的正则表达式用法，请查阅本站《.htaccess正则表达式》一文。<br>双引号中的“管道符”(|)用于将两种文件类型（.log和.exe）分开，相当于逻辑“或”<br>Order命令必须嵌在Files节(Section)中，否则将会应用到所有文件<br>Satisfy All表示必须同时满足主机级别(Allow/Denay)和用户级别(Require)的限制，All是默认值，该行可以省略。<br>5.高级访问控制(Rewrite)<br>我们还可以通过运用Rewrite实现更强大的访问控制，但是Rewrite不是本文讨论的内容。读者可以参看：利用RewriteCond和RewriteRule进行访问控制一文。</filesmatch></p>
+<p>三、利用.htaccess进行密码保护与验证<br>1.配置.htaccess<br>AuthType Basic<br>AuthName “restricted area”<br>AuthUserFile /usr/local/var/www/html/.htpasses<br>require valid-user<br>这个配置文件可以保护.htaccess所在的整个目录，简单说明下参数：</p>
+<p>AuthType：验证类型为基本类型，密码以明文方式传输到服务器上<br>AuthName：验证提示，会出现在验证对话框中<br>AuthUserFile：验证配置文件，用于匹配用户名与密码，该密码是加密保存的<br>require valid-user：只有在AuthUserFile中出现的用户才可以通过验证<br>如果验证失败，则会出现401错误。</p>
+<p>2.生成.htpasses文件<br>如何生成.htpasses文件呢？我们通过htpasswd命令生成密码文件：</p>
+<p>htpasswd -c /usr/local/var/www/html/.htpasses lesca<br>它会提示你输入密码，并确认。之后将密码文件.htpasses保存在/usr/local/var/www/html/目录下。</p>
+<p>3.对文件进行密码保护<br>保护与.htaccess在同一目录下的文件secure.php：</p>
+<h1 id="password-protect-single-file"><a href="#password-protect-single-file" class="headerlink" title="password-protect single file"></a>password-protect single file</h1><p><files secure.php=""><br>AuthType Basic<br>AuthName “Prompt”<br>AuthUserFile /home/path/.htpasswd<br>Require valid-user<br></files><br>保护.htaccess所在目录下的多个文件：</p>
+<h1 id="password-protect-multiple-files"><a href="#password-protect-multiple-files" class="headerlink" title="password-protect multiple files"></a>password-protect multiple files</h1><p><filesmatch "^(execute|index|secure|insanity|biscuit)*$"=""><br>AuthType basic<br>AuthName “Development”<br>AuthUserFile /home/path/.htpasswd<br>Require valid-user<br></filesmatch><br>4.对指定IP进行密码保护<br>仅允许IP地址为99.88.77.66的主机直接访问该目录，其他IP需要验证。</p>
+<p>AuthType Basic<br>AuthName “Personal”<br>AuthUserFile /home/path/.htpasswd<br>Require valid-user<br>Allow from 99.88.77.66<br>Satisfy Any<br>5.安全性<br>出于安全考虑，将.htpasses文件存放在WEB目录树之外也许是个好方法，但是由于.htpasses是隐藏文件，而且Apache不会输出隐藏文件，因此可以满足基本的安全要求。这是通过在主配置文件中加入如下限制实现的：</p>
+<p><files ~="" "^\.ht"=""><br> Order allow,deny<br> Deny from all<br> Satisfy All<br></files><br>一般而言，这是默认设置，用户无需手动添加。我们唯一需要担心的是密码在网络传输过程中是明文形式，这很容易被黑客破译。Coz[1]提供了一个开源项目Pajamas可以在本地利用JS对密码进行MD5加密，有兴趣的读者可以前去研究一下。</p>
+<p>四、目录浏览与主页<br>如果你打开本站的下载页面<a href="http://download.lesca.me/，就会发现你可以看见这个站点下的所有文件。像这样的特性也可以通.htaccess来设置用户是否有权限浏览服务器目录。" target="_blank" rel="external">http://download.lesca.me/，就会发现你可以看见这个站点下的所有文件。像这样的特性也可以通.htaccess来设置用户是否有权限浏览服务器目录。</a></p>
+<p>1.启用目录浏览</p>
+<h1 id="enable-directory-browsing"><a href="#enable-directory-browsing" class="headerlink" title="enable directory browsing"></a>enable directory browsing</h1><p>Options All +Indexes<br>2.禁用目录浏览</p>
+<h1 id="disable-directory-browsing"><a href="#disable-directory-browsing" class="headerlink" title="disable directory browsing"></a>disable directory browsing</h1><p>Options All -Indexes<br>我们还可以通过IndexIgnore指令来禁用目录浏览。</p>
+<h1 id="prevent-folder-listing"><a href="#prevent-folder-listing" class="headerlink" title="prevent folder listing"></a>prevent folder listing</h1><p>IndexIgnore *<br>通过IndexIgnore指令，我们可以禁止对指定类型的文件浏览：</p>
+<h1 id="prevent-display-of-select-file-types"><a href="#prevent-display-of-select-file-types" class="headerlink" title="prevent display of select file types"></a>prevent display of select file types</h1><p>IndexIgnore <em>.wmv </em>.mp4 <em>.avi </em>.etc<br>3.自定义目录浏览<br>如果你希望Apache在展示你的WEB目录时看起来与众不同，那么你需要启用FancyIndexing选项：</p>
+<p><ifmodule mod_autoindex.c=""><br> IndexOptions FancyIndexing<br></ifmodule><br>通过这个选项，你可以实现自定义图标、添加文件类型描述、按日期排序等。但是这些已经超过了本文的讨论范围，Lesca可以给你一个做好的例子，你可以在这页查看效果。</p>
+<p>4.配置目录主页文件<br>即使启用了目录浏览，Apache未必会展示该目录的内容，因为该目录可能存在像index.htm这样的默认主页文件。Apache会有限展示主页文件，我们可以通过.htaccess设置：</p>
+<p>DirectoryIndex index.html index.php index.htm<br>5.配置错误页面<br>如果Apache遇到错误，就会输出错误页面。配置自定义的错误页面，也许可以挽留即将离开的用户。</p>
+<h1 id="custom-error-documents"><a href="#custom-error-documents" class="headerlink" title="custom error documents"></a>custom error documents</h1><p>ErrorDocument 401 /err/401.php<br>ErrorDocument 403 /err/403.php<br>ErrorDocument 404 /err/404.php<br>ErrorDocument 500 /err/500.php<br>五、URL重写与URL重定向<br>下一篇文章，我们将介绍htaccess的重头戏：URL重写与URL重定向</p>
+<p>References:<br>[1] .htaccess tips and tricks<br>[2] Stupid htaccess Tricks<br>[3] Files Directive</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-25T08:46:46.877Z" itemprop="dateUpdated">2018-04-25 16:46:46</time>
+</span><br>
+
+
+        
+    </div>
+    <footer>
+        <a href="http://blog.panzhenglian.com">
+            <img src="/uploads/avatar.jpg" alt="平凡">
+            平凡
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&title=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&pic=http://blog.panzhenglian.com/uploads/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&title=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&via=http://blog.panzhenglian.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/07/09/铃声/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">铃声</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/14/材料表/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">材料表</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/index.html',
+        sourceId: 'htaccess教程：简介、访问控制、验证、目录浏览控制',
+        productKey: '4838d6f4ebf84c3e9a0ff5754042079a',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '/css/cloudTie/pc.css?v=1.6.7',
+            '/js/cloudTie/pc.min.js?v=1.6.7',
+        ],
+        mobileFiles: [
+            '/css/cloudTie/mobile.css?v=1.6.7',
+            '/js/cloudTie/mobile.min.js?v=1.6.7'
+        ]
+    };
+    </script>
+    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>平凡 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&title=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&pic=http://blog.panzhenglian.com/uploads/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&title=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《.htaccess教程：简介、访问控制、验证、目录浏览控制》 — 平凡&url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/&via=http://blog.panzhenglian.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://blog.panzhenglian.com/2018/04/25/htaccess教程：简介、访问控制、验证、目录浏览控制/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
